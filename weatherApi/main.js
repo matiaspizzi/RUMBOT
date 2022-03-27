@@ -3,6 +3,8 @@ require('dotenv').config()
 
 const getClima = async (location) => {
 
+    console.log(`location: ${location}`)
+
     const params = new URLSearchParams({
         access_key: process.env.WEATHER_ACCESS_KEY,
         query: `${location}`
