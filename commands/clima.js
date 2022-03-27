@@ -8,6 +8,7 @@ module.exports = {
 
     callback: async ({text}) => {   
         const ciudad = `${text}`
+        console.log(ciudad)
         const data = await getClima(ciudad)
         console.log(data)
         if(data){ 
