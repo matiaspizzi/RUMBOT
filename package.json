@@ -1,6 +1,5 @@
 {
   "name": "rumbot",
-  "type": "module",
   "version": "1.0.0",
   "description": "Discord bot developed by Mato#9265",
   "main": "index.js",
@@ -12,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/voice": "^0.8.0",
+    "axios": "^0.26.1",
     "discord.js": "^13.6.0",
+    "dotenv": "^8.6.0",
+    "firebase-admin": "^10.0.2",
     "node-fetch": "^2.6.7",
     "wokcommands": "^1.5.3"
   }

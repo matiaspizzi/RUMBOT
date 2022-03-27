@@ -1,40 +1,68 @@
-import fetch from "node-fetch";
-import getAppList from "./getAppList.js"
+const fetch = require("node-fetch") 
+const getAppList = require("./getAppList.js") 
 
-const getAppData = async (appName) => {
-    const appList = await getAppList()   
-    const appNameLower = appName.toLowerCase()   
-    const app = appList.app.find(app => app.name.toLowerCase() == `${appNameLower}`)
-    if(!app){
-        return app
-    } else {
-        console.log("producto encontrado")
-        return getAppPrice(app)
-    }
-}
+const banedIds = [980030]
+ 
 
-const getAppPrice = async (app) => {
-    if(app.appid){
-        const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ars`)
-        const appData = await res.json()
-        if(appData[app.appid].data.is_free == false){
-            console.log(appData[app.appid].data.price_overview)
-            return {
-                appName: appData[app.appid].data.name,
-                officialPrice: appData[app.appid].data.price_overview.final_formatted, 
-                realPrice: formatRealPrice(appData[app.appid].data.price_overview.final)
-            }
+const getAppData = async (param) => {
+    const appList = await getAppList() 
+    const appid = Number(param)
+    if(`${appid}` == "NaN"){
+        console.log("appid is NaN")
+        const appNameLower = param.toLowerCase()
+        const app = appList.find(app => app.name.toLowerCase() == `${appNameLower}` && !banedIds.includes(app.appid))
+        if(!app){
+            return app
         } else {
-            return false
+            return getAppDetails(app)
+        }
+    } else if (typeof appid == "number"){
+        console.log("appid is number")
+        const app = appList.find(app => app.appid == appid && !banedIds.includes(app.appid))
+        if(!app){
+            return app
+        } else {
+            return getAppDetails(app)
         }
     }
 }
 
-const formatRealPrice = (price) => {
-    price = (price * 1.65).toFixed(0)
-    console.log(price)
+const getAppDetails = async (app) => {
+    if(app.appid){
+        const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ars`)
+        const appData = await res.json()
+        if(appData[app.appid].data.price_overview){
+            return {
+                steam_appid: appData[app.appid].data.steam_appid,
+                appName: appData[app.appid].data.name,
+                is_free: appData[app.appid].data.is_free,
+                price_initial:  formatPrice(appData[app.appid].data.price_overview.initial), 
+                price_final:  formatPrice(appData[app.appid].data.price_overview.final), 
+                realPrice:  formatPrice((appData[app.appid].data.price_overview.final * 1.65).toFixed(0)),
+                discount_percent:  `${appData[app.appid].data.price_overview.discount_percent}%`,
+                short_description: appData[app.appid].data.short_description,
+                img_url: appData[app.appid].data.header_image,
+                store_url_explorer: `https://s.team/a/${appData[app.appid].data.steam_appid}`,
+                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`
+            }
+        } else if(appData[app.appid].data.is_free === true){
+            return {
+                steam_appid: appData[app.appid].data.steam_appid,
+                appName: appData[app.appid].data.name,
+                is_free: appData[app.appid].data.is_free,
+                img_url: appData[app.appid].data.header_image,
+                short_description: appData[app.appid].data.short_description,
+                store_url_explorer: `https://s.team/a/${appData[app.appid].data.steam_appid}`,
+                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`
+            }
+        }
+    }
+}
+
+const formatPrice = (price) => {
     const string = price.toString()
     const formated = "ARS$ " + string.slice(0, (string.length - 2)) + "," + (string).slice(string.length - 2);
     return formated
 }
-export default getAppData
+
+module.exports = getAppData
