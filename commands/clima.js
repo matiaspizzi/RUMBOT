@@ -8,9 +8,7 @@ module.exports = {
 
     callback: async ({text}) => {   
         const ciudad = `${text}`
-        console.log(ciudad)
         const data = await getClima(ciudad)
-        console.log(data)
         if(data){ 
             let icon
             let color
@@ -33,7 +31,6 @@ module.exports = {
             .setThumbnail(data.weather_icons)
             .setColor(color)
         } else {
-            console.log(`data : ${data}`)
             return new MessageEmbed()
             .setTitle("Por favor, escriba un parámetro válido.")
             .setFields(

@@ -3,17 +3,13 @@ require('dotenv').config()
 
 const getClima = async (location) => {
 
-    console.log(`location: ${location}`)
-
     const params = new URLSearchParams({
         access_key: process.env.WEATHER_ACCESS_KEY,
         query: `${location}`
     })
 
     const res = await fetch(`http://api.weatherstack.com/current?${params}`)
-    console.log(res)
     let data = await res.json()
-    console.log(data)
     if(data.location){
         data = {
             location: data.location.name + ", " + data.location.region + ", " + data.location.country,
