@@ -8,7 +8,6 @@ const getAppData = async (param) => {
     const appList = await getAppList() 
     const appid = Number(param)
     if(`${appid}` == "NaN"){
-        console.log("appid is NaN")
         const appNameLower = param.toLowerCase()
         const app = appList.find(app => app.name.toLowerCase() == `${appNameLower}` && !banedIds.includes(app.appid))
         if(!app){
@@ -17,7 +16,6 @@ const getAppData = async (param) => {
             return getAppDetails(app)
         }
     } else if (typeof appid == "number"){
-        console.log("appid is number")
         const app = appList.find(app => app.appid == appid && !banedIds.includes(app.appid))
         if(!app){
             return app
@@ -32,6 +30,7 @@ const getAppDetails = async (app) => {
         const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ars`)
         const appData = await res.json()
         if(appData[app.appid].data.price_overview){
+            console.log(appData[app.appid].data.price_overview.initial)
             return {
                 steam_appid: appData[app.appid].data.steam_appid,
                 appName: appData[app.appid].data.name,
