@@ -27,7 +27,7 @@ const getAppData = async (param) => {
 
 const getAppDetails = async (app) => {
     if(app.appid){
-        const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ars`)
+        const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ar`)
         const appData = await res.json()
         if(appData[app.appid].data.price_overview){
             console.log(appData[app.appid].data.price_overview.initial)
