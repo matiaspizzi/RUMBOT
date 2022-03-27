@@ -11,6 +11,7 @@ const getClima = async (location) => {
     })
 
     const res = await fetch(`http://api.weatherstack.com/current?${params}`)
+    console.log(res)
     let data = await res.json()
     if(data.location){
         data = {
