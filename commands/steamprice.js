@@ -23,9 +23,11 @@ module.exports = {
                     .setFields(
                         {name : "Descuento:", value : appData.discount_percent, inline : true},
                         {name : "Precio oficial:", value : appData.price_final, inline : true},
-                        {name : "Precio con impuestos:", value : appData.realPrice, inline : true},
-                        {name : "Abrir en explorador", value : appData.store_url_explorer, inline : true},
-                        {name : "Abrir en aplicacion", value : appData.store_url_app, inline : true},
+                        {name : "Con impuestos:", value : appData.realPrice, inline : true},
+                        {name : "Tamaño:", value : appData.size, inline : false},
+                        {name : "Abrir en explorador:", value : appData.store_url_explorer, inline : true},
+                        {name : "Abrir en aplicacion:", value : appData.store_url_app, inline : true},
+                        
                     )
                     .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
             }  else if (appData.is_free == true){
@@ -35,8 +37,9 @@ module.exports = {
                     .setDescription(appData.short_description)
                     .setImage(appData.img_url)
                     .setFields(
-                        {name : "Abrir en explorador", value : appData.store_url_explorer, inline : true},
-                        {name : "Abrir en aplicacion", value : appData.store_url_app, inline : true},
+                        {name : "Abrir en explorador:", value : appData.store_url_explorer, inline : true},
+                        {name : "Abrir en aplicacion:", value : appData.store_url_app, inline : true},
+                        {name : "Tamaño:", value : appData.size, inline : false}
                     )
                     .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
             }   

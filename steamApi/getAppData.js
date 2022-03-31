@@ -29,6 +29,7 @@ const getAppDetails = async (app) => {
     if(app.appid){
         const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${app.appid}&cc=ar`)
         const appData = await res.json()
+        console.log(appData)
         if(appData[app.appid].data.price_overview){
             console.log(appData[app.appid].data.price_overview.initial)
             return {
@@ -42,7 +43,8 @@ const getAppDetails = async (app) => {
                 short_description: appData[app.appid].data.short_description,
                 img_url: appData[app.appid].data.header_image,
                 store_url_explorer: `https://s.team/a/${appData[app.appid].data.steam_appid}`,
-                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`
+                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`,
+                size: getSize(removeTags(appData[app.appid].data.pc_requirements.minimum)),
             }
         } else if(appData[app.appid].data.is_free === true){
             return {
@@ -52,10 +54,27 @@ const getAppDetails = async (app) => {
                 img_url: appData[app.appid].data.header_image,
                 short_description: appData[app.appid].data.short_description,
                 store_url_explorer: `https://s.team/a/${appData[app.appid].data.steam_appid}`,
-                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`
+                store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`,
+                size: getAppSize(removeHTMLTags(appData[app.appid].data.pc_requirements.minimum))
             }
         }
     }
+}
+
+function removeHTMLTags(str) {
+    if ((str===null) || (str==='')){
+        return false;
+    }
+    else{
+        str = str.toString();
+        return str.replace( /(<([^>]+)>)/ig, '  ');
+    }
+}
+
+function getAppSize(pc_requirements_recommended){
+    const index = pc_requirements_recommended.indexOf('GB available')
+    const storage = pc_requirements_recommended.substr(index-4, 7)
+    return storage
 }
 
 const formatPrice = (price) => {
