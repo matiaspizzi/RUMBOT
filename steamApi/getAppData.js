@@ -65,14 +65,18 @@ function removeHTMLTags(str) {
     }
     else{
         str = str.toString();
-        return str.replace( /(<([^>]+)>)/ig, '  ');
+        return str.replace( /(<([^>]+)>)/ig, '  ')
     }
 }
 
 function getAppSize(pc_requirements_recommended){
-    const index = pc_requirements_recommended.indexOf('GB available')
-    const storage = pc_requirements_recommended.substr(index-4, 7)
-    return storage
+    const index = pc_requirements_recommended.indexOf('GB available space')
+    if(index > 0){
+        const storage = pc_requirements_recommended.substr(index-4, 7)
+        return storage
+    } else {
+        return "No se encontró"
+    }
 }
 
 const formatPrice = (price) => {
