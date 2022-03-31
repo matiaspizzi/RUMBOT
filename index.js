@@ -9,7 +9,6 @@ const client = new Discord.Client({
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is alive!`)
-
   const __dirname = path.resolve(path.dirname(''));
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),

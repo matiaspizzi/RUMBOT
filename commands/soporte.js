@@ -7,7 +7,6 @@ module.exports = {
     category: "Bot",
 
     callback: async ({message, text}) => {
-        console.log(message.author.username, message.author.discriminator, text)
         if(text.length > 20){
             saveMessage({
                 user: message.author.username,
