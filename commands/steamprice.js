@@ -10,7 +10,6 @@ module.exports = {
         if(text){
             const appName = text.charAt(0).toUpperCase() + text.slice(1)
             const appData = await getAppData(appName)
-            console.log(appData)
             if (appData === undefined){
                 return new MessageEmbed()
                 .setTitle(`No se encontró el juego "${appName}"  :x:`)
