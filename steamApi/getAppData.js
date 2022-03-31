@@ -44,7 +44,7 @@ const getAppDetails = async (app) => {
                 img_url: appData[app.appid].data.header_image,
                 store_url_explorer: `https://s.team/a/${appData[app.appid].data.steam_appid}`,
                 store_url_app: `steam://store/${appData[app.appid].data.steam_appid}`,
-                size: getAppSize(removeTags(appData[app.appid].data.pc_requirements.minimum)),
+                size: getAppSize(removeHTMLTags(appData[app.appid].data.pc_requirements.minimum)),
             }
         } else if(appData[app.appid].data.is_free === true){
             return {
