@@ -37,9 +37,9 @@ module.exports = {
                     .setDescription(appData.short_description)
                     .setImage(appData.img_url)
                     .setFields(
+                        {name : "Tamaño:", value : appData.size, inline : false},
                         {name : "Abrir en explorador:", value : appData.store_url_explorer, inline : true},
                         {name : "Abrir en aplicacion:", value : appData.store_url_app, inline : true},
-                        {name : "Tamaño:", value : appData.size, inline : false}
                     )
                     .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
             }   
