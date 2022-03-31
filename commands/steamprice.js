@@ -10,7 +10,8 @@ module.exports = {
         if(text){
             const appName = text.charAt(0).toUpperCase() + text.slice(1)
             const appData = await getAppData(appName)
-            if (appData == undefined){
+            console.log(appData)
+            if (appData === undefined){
                 return new MessageEmbed()
                 .setTitle(`No se encontró el juego "${appName}"  :x:`)
                 .setColor("RED")
@@ -30,7 +31,7 @@ module.exports = {
                         
                     )
                     .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
-            }  else if (appData.is_free == true){
+            }  else if (appData.is_free === true){
                 return new MessageEmbed()
                     .setTitle(`:sparkles: ${appData.appName} es gratis! :free:`)
                     .setColor("BLUE")

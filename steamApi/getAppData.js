@@ -70,9 +70,9 @@ function removeHTMLTags(str) {
 }
 
 function getAppSize(pc_requirements_recommended){
-    const index = pc_requirements_recommended.indexOf('GB available space')
+    const index = pc_requirements_recommended.indexOf('Storage:')
     if(index > 0){
-        const storage = pc_requirements_recommended.substr(index-4, 7)
+        const storage = pc_requirements_recommended.substr(index+8, 8)
         return storage
     } else {
         return "No se encontró"
