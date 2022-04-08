@@ -2,7 +2,7 @@ const {MessageEmbed} = require("discord.js")
 const firebase = require("firebase-admin");
 
 module.exports = {  
-    description: "Send a message to the support team.",
+    description: "Enviá un mensaje a soporte.",
     slash: false,
     category: "Bot",
 

@@ -1,4 +1,4 @@
-const getClima = require('../weatherApi/main.js')
+const getClima = require('../APIs/weatherApi/getWeather.js')
 const {MessageEmbed} = require("discord.js") 
 
 module.exports = {  

@@ -1,9 +1,9 @@
 const {MessageEmbed} = require("discord.js") 
 
 module.exports = {  
-    description: "Throw a dice, and get a random number between 1 and 6.",
+    description: "Tirar dado.",
     slash: "both",
-    category: "Fun",
+    category: "Varios",
 
     callback: async () => {
         const number = Math.floor(Math.random() * (6 - 1 + 1) + 1)

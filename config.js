@@ -2,9 +2,10 @@ require('dotenv').config()
 const firebase = require("firebase-admin");
 
 const config = {
+    weather: {
+        access_key: process.env.WEATHER_ACCESS_KEY
+    },
     firebase: {
-        collectionNameProductos: 'productos',
-        collectionNameCarritos: 'carritos',
         type: process.env.TYPE,
         project_id: process.env.PROJECT_ID,
         private_key_id: process.env.PRIVATE_KEY_ID,

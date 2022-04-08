@@ -7,8 +7,10 @@ const client = new Discord.Client({
   intents: 14021
 });
 
+
 client.on("ready", () => {
   console.log(`${client.user.tag} is alive!`)
+  client.user.setActivity('!ayuda');
   const __dirname = path.resolve(path.dirname(''));
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),

@@ -1,8 +1,8 @@
 const {MessageEmbed} = require("discord.js") 
-const getAppData = require("../steamApi/getAppData.js") 
+const getAppData = require("../APIs/steamApi/getAppData.js") 
 
 module.exports = {  
-    description: "Get the price of a game on Pesos Argentos.",
+    description: "Obtener info de un juego de steam.",
     slash: false,
     category: "Steam",
 
@@ -27,7 +27,6 @@ module.exports = {
                         {name : "Tamaño:", value : appData.size, inline : false},
                         {name : "Abrir en explorador:", value : appData.store_url_explorer, inline : true},
                         {name : "Abrir en aplicacion:", value : appData.store_url_app, inline : true},
-                        
                     )
                     .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
             }  else if (appData.is_free === true){

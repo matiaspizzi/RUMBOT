@@ -1,10 +1,10 @@
 const fetch = require("node-fetch")
-require('dotenv').config()
+const config = require("../../config.js")
 
-const getClima = async (location) => {
+const getWeather = async (location) => {
 
     const params = new URLSearchParams({
-        access_key: process.env.WEATHER_ACCESS_KEY,
+        access_key: config.weather.access_key,
         query: `${location}`
     })
 
@@ -25,4 +25,4 @@ const getClima = async (location) => {
     }
 }
 
-module.exports = getClima
+module.exports = getWeather

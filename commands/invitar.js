@@ -1,7 +1,7 @@
 const {MessageEmbed} = require("discord.js") 
 
 module.exports = {  
-    description: "Invite RumBot to your server.",
+    description: "Invitar al Bot a tu server.",
     slash: "both",
     category: "Bot",
 
