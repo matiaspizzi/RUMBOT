@@ -27,7 +27,7 @@ module.exports = {
                 {name : "Humedad:", value : `${data.humidity}%`, inline : true},
                 {name : "Viento:", value : `${data.wind_speed}km/h`, inline : true},
             )
-            .setFooter({text: `${data.time} \n Para mas información: !clima \t\t\t\t\t Powered by: weatherstack.com `})
+            .setFooter({text: `${data.time} \n Para mas información: rb clima \t\t\t\t\t Powered by: weatherstack.com `})
             .setThumbnail(data.weather_icons)
             .setColor(color)
         } else {
@@ -35,8 +35,8 @@ module.exports = {
             .setTitle("Por favor, escriba un parámetro válido.")
             .setFields(
                 {name : "Entre ellos:", value : "Ubicaciones: _Buenos Aires, Distrito Federal, Argentina_ \n Coordenadas: _-34.608214,-58.370266_ \n Direcciones IP: _190.174.XXX.XXX_"},
-                {name : "Forma de usar el comando:", value : "!clima <parámetro>"},
-                {name : "Ejemplos:", value : "!clima Buenos Aires, Argentina \n !clima -84.907230, 63.834074"},
+                {name : "Forma de usar el comando:", value : "rb clima <parámetro>"},
+                {name : "Ejemplos:", value : "rb clima Buenos Aires, Argentina \n rb clima -84.907230, 63.834074"},
             )
             .setFooter({text: "Si tenés algún problema, contacte con !soporte."})
             .setColor("RED")

@@ -47,8 +47,8 @@ module.exports = {
                 .setTitle(`**Por favor, escriba un parámetro válido.**`)
                 .setFields(
                     {name : "Entre ellos:", value : "Nombres de juegos: _Rust_ \nIds des juegos: _252490_"},
-                    {name : "Forma de usar el comando:", value : "!steamprice <parámetro>"},
-                    {name : "Ejemplos:", value : "!steamprice Counter-Strike: Global Offensive \n !steamprice 730"},
+                    {name : "Forma de usar el comando:", value : "rb steaminfo <parámetro>"},
+                    {name : "Ejemplos:", value : "rb steaminfo Counter-Strike: Global Offensive \n rb steaminfo 730"},
                 )
                 .setFooter({text: "Si no funciona correctamente, por favor avisar en !soporte"})
                 .setColor("RED")

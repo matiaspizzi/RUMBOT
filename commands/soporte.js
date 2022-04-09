@@ -21,8 +21,8 @@ module.exports = {
         return new MessageEmbed()
         .setTitle(`:x: Error_!_`)
         .setFields(
-            {name : "Forma de usar el comando:", value : "!soporte <descripción del problema>"},
-            {name : "Ejemplo:", value : "!soporte el comando steamprice no funciona con el juego x"},
+            {name : "Forma de usar el comando:", value : "rb soporte <descripción del problema>"},
+            {name : "Ejemplo:", value : "rb soporte el comando steamprice no funciona con el juego x"},
         )
         .setDescription(`Por favor, escriba un mensaje más largo. (minimo 20 caracteres)`)
         .setFooter({text: "Si el mensaje es inapropiado, corre riesgo de ser baneado."})
