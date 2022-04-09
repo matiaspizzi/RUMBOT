@@ -62,11 +62,13 @@ module.exports = {
                 .setDescription(`**Forma de usar el comando:** \n rb audio <nombre>, <audio>\n \n __**Lista de audios**__:`)
                 .setColor("RED")
                 .setFields(
-                    { name: `:small_blue_diamond: ${audioResources[0].nombre}:`, value: ` ${audioResources[0].audios[0].nombre} \n ${audioResources[0].audios[1].nombre} \n  ${audioResources[0].audios[2].nombre} \n  ${audioResources[0].audios[3].nombre} \n -----------------------------`, inline: false },
-                    { name: `:small_blue_diamond: ${audioResources[1].nombre}:`, value: ` ${audioResources[1].audios[0].nombre} \n -----------------------------`, inline: false },
-                    { name: `:small_blue_diamond: ${audioResources[2].nombre}:`, value: ` ${audioResources[2].audios[0].nombre} \n -----------------------------`, inline: false },
-                    { name: `:small_blue_diamond: ${audioResources[3].nombre}:`, value: ` ${audioResources[3].audios[0].nombre} \n -----------------------------`, inline: false },
-                    { name: `:small_blue_diamond: ${audioResources[4].nombre}:`, value: ` ${audioResources[4].audios[0].nombre} \n ${audioResources[4].audios[1].nombre} \n -----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[0].nombre}:`, value: `${audioResources[0].audios[0].nombre}\n${audioResources[0].audios[1].nombre}\n${audioResources[0].audios[2].nombre}\n${audioResources[0].audios[3].nombre}\n${audioResources[0].audios[4].nombre}\n${audioResources[0].audios[5].nombre}\n -----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[1].nombre}:`, value: `${audioResources[1].audios[0].nombre}\n-----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[2].nombre}:`, value: `${audioResources[2].audios[0].nombre}\n-----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[3].nombre}:`, value: `${audioResources[3].audios[0].nombre}\n-----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[4].nombre}:`, value: `${audioResources[4].audios[0].nombre}\n-----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[5].nombre}:`, value: `${audioResources[5].audios[0].nombre}\n${audioResources[5].audios[1].nombre}\n${audioResources[5].audios[2].nombre}\n${audioResources[5].audios[3].nombre}\n-----------------------------`, inline: false },
+                    { name: `:small_blue_diamond: ${audioResources[6].nombre}:`, value: `${audioResources[6].audios[0].nombre}\n${audioResources[6].audios[1].nombre}\n${audioResources[6].audios[2].nombre}\n${audioResources[6].audios[3].nombre}\n-----------------------------`, inline: false },
                 )
                 .setFooter({ text: "Si no funciona correctamente, por favor avisar en !soporte" })
         }

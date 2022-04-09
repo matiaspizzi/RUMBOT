@@ -26,6 +26,6 @@ yarn-error.log*
 package-lock.json
 
 pruebas.js
-/futureCommands
-/footballApi
+futureCommands
+footballApi
 
