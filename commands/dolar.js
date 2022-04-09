@@ -4,7 +4,7 @@ const getDolar = require("../APIs/dolarApi/getDolar.js")
 module.exports = {
     description: "Cotizacion del dolar en pesos argentinos",
     slash: false,
-    category: "Dolar",
+    category: "Economía",
 
     callback: async () => {
 

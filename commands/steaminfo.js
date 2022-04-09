@@ -4,7 +4,7 @@ const getAppData = require("../APIs/steamApi/getAppData.js")
 module.exports = {  
     description: "Obtener info de un juego de steam.",
     slash: false,
-    category: "Steam",
+    category: "Juegos & otros",
 
     callback: async ({text}) => {
         if(text){
