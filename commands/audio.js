@@ -56,13 +56,13 @@ module.exports = {
 
         console.log(queue.playing)
 
-        if (queue.playing) {
+        if (queue.playing === true) {
             return new MessageEmbed()
             .setDescription(`:x: El Bot está en uso.`)
             .setColor("RED")
         }
         
-        if (!queue.playing) {
+        if (queue.playing === false) {
             getAudio(audioName, personaName)
 
             if (channel === null) {
