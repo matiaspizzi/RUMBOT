@@ -1,11 +1,14 @@
 const Discord = require("discord.js") 
 const WOKCommands = require("wokcommands") 
+const { Player } = require("discord-player");
 const path = require("path") 
 require('dotenv').config()
 
 const client = new Discord.Client({
   intents: 14021
 });
+
+global.player = new Player(client);
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is alive!`)
@@ -26,19 +29,22 @@ client.on("ready", () => {
       emoji: '🤖'
     },
     {
-        name: 'Juegos & otros',
-        emoji: '🎮'
+      name: 'Audio',
+      emoji: '🎵'
     },
     {
-        name: 'Economía',
-        emoji: '💸'
+      name: 'Juegos & otros',
+      emoji: '🎮'
     },
-
+    {
+      name: 'Economía',
+      emoji: '💸'
+    },
     {
       name: 'Clima',
       emoji: '☀️'
-  }
-])
+    }
+  ])
 })
 
 client.login(process.env.DISCORD_CLIENT_TOKEN)
