@@ -54,15 +54,14 @@ module.exports = {
             });
         }
 
-        console.log(queue.playing)
 
-        if (queue.playing === true) {
+        if (queue) {
             return new MessageEmbed()
             .setDescription(`:x: El Bot está en uso.`)
             .setColor("RED")
         }
         
-        if (queue.playing === false) {
+        if (!queue) {
             getAudio(audioName, personaName)
 
             if (channel === null) {
