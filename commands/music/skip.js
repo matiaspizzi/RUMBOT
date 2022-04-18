@@ -4,19 +4,17 @@ module.exports = {
     description: "Salta la canción actual",
     slash: "both",
     category: "Audio",
-    
+
     callback: async ({ message }) => {
         const queue = player.getQueue(message.guild.id);
 
-		if (!queue || !queue.playing) return new MessageEmbed()
-        .setDescription(`Actualmente no se esta reproduciendo música`)
-        .setColor("RED")
+        if (!queue || !queue.playing) return new MessageEmbed()
+            .setDescription(`Actualmente no se esta reproduciendo música`)
 
         const currentSong = queue.current
 
-		queue.skip()
+        queue.skip()
         return new MessageEmbed()
-        .setDescription(`:white_check_mark: ${currentSong.title} ha sido omitida!`)
-        .setColor("GREEN")
-	},
+            .setDescription(`**${currentSong.title}** ha sido omitida!`)
+    },
 }

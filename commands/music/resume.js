@@ -5,16 +5,15 @@ module.exports = {
     slash: "both",
     category: "Audio",
 
-	callback: async ({ message }) => {
-		const queue = player.getQueue(message.guild.id)
+    callback: async ({ message }) => {
+        const queue = player.getQueue(message.guild.id)
 
-		if (!queue) return new MessageEmbed()
-        .setDescription(`No hay canciones en la cola de reproduccion`)
-        .setColor("RED")
+        if (!queue) return new MessageEmbed()
+            .setDescription(`No hay canciones en la cola de reproduccion`)
 
-		queue.setPaused(false)
+        queue.setPaused(false)
         return new MessageEmbed()
-        .setDescription(`Reproduccion reanudada, para pausar use "rb pause"`)
-        .setColor("WHITE")
-	},
+            .setDescription(`Reproduccion reanudada, para pausar use "rb pause"`)
+            .setColor("BLACK")
+    },
 }

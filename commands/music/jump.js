@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    description: "Salta a la canción seleccionada y elimina las anteriores",
+    description: "Salta a la canción seleccionada",
     slash: "both",
     category: "Audio",
 
@@ -18,7 +18,7 @@ module.exports = {
 
         const omitida = queue.current
 
-        queue.skipTo(trackNum - 1)
+        queue.jump(trackNum - 1)
 
         return new MessageEmbed()
             .setDescription(`**${omitida.title}** ha sido omitida! :arrow_right: Saltando a **${queue.tracks[0].title}**`)

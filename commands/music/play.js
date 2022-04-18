@@ -6,7 +6,7 @@ module.exports = {
     slash: "both",
     category: "Audio",
 
-    callback: async ({ message, text }) => {   
+    callback: async ({ message, text }) => {
 
         const data = text;
 
@@ -42,22 +42,25 @@ module.exports = {
         } catch {
             await player.deleteQueue(message.guild.id)
             return new MessageEmbed()
-                .setDescription(`:x: No puedo entrar a tu canal de voz!`)
-                .setColor("RED")
+                .setDescription(`No puedo entrar a tu canal de voz!`)
         }
 
         result.playlist ? queue.addTracks(result.tracks) : queue.addTrack(result.tracks[0]);
         if (!queue.playing) await queue.play();
 
         if (result.playlist) return new MessageEmbed()
-            .setTitle(`:white_check_mark: Reproduciendo playlist `)
-            .setDescription(`**[${result.playlist.title}](${result.playlist.url})** de **[${result.playlist.author.name}](${result.playlist.author.url}})**\n\n**${result.tracks.length}** canciones desde **${result.playlist.source}** agregadas a la cola!`)
+            .setTitle(`Reproduciendo playlist`)
+            .setDescription(`**[${result.playlist.title}](${result.playlist.url})** de **[${result.playlist.author.name}](${result.playlist.author.url})**\n\n**${result.tracks.length}** canciones de **${result.playlist.source}** agregadas a la cola!`)
             .setThumbnail(result.playlist.thumbnail)
+            .setTimestamp()
+            .setFooter({ text: `${message.member.displayName}` })
             .setColor("GREEN")
 
         return new MessageEmbed()
-            .setDescription(`**[${track.title}](${track.url})**\n\nha sido añadida a la cola de reproduccion\n\nDuración: ${track.duration}`)
+            .setDescription(`**[${track.title}](${track.url})**\nAñadida a la cola de reproduccion`)
             .setThumbnail(track.thumbnail)
+            .setTimestamp()
+            .setFooter({ text: `${message.member.displayName}` })
             .setColor("GREEN")
     }
 }
