@@ -13,19 +13,18 @@ module.exports = (client, instance) => {
         return
       }
 
-      channel.send(
-        new MessageEmbed()
-        .setTitle(`:sparkles: Bienvenido ${member.user.tag}`)
+      return new MessageEmbed()
+        .setTitle(`:sparkles: Bienvenido ${member}`)
         .setColor("GREEN")
         .setThumbnail(member.user.avatarURL)
         .setTimestamp()
-      )
+      
     })
 }
   
 module.exports.config = {
 
-    isplayName: 'Welcome Message',
+    displayName: 'Welcome Message',
     description: 'Sends a welcome message to new members',
     dbName: 'WELCOME MESSAGE'
 }
