@@ -2,7 +2,7 @@
 
 ## **Bot para Discord desarrollado en Node Js.**
 
-## Se utilizó como base para comandos la dependencia **"wokcommands"**
+Se utilizó como base para comandos la dependencia **"wokcommands"**
 
 ## **Funciones:**
 
