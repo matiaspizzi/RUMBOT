@@ -1,5 +1,4 @@
-require('dotenv').config()
-const firebase = require("firebase-admin");
+import firebase from "firebase-admin";
 
 const config = {
     weather: {
@@ -9,7 +8,7 @@ const config = {
         type: process.env.TYPE,
         project_id: process.env.PROJECT_ID,
         private_key_id: process.env.PRIVATE_KEY_ID,
-        private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: process.env.PRIVATE_KEY?.replace(/\\n/g, '\n'),
         client_id: process.env.CLIENT_ID,
         clientEmail: process.env.CLIENT_EMAIL,
         auth_uri: process.env.AUTH_URI,
@@ -23,4 +22,4 @@ firebase.initializeApp({
     credential: firebase.credential.cert(config.firebase)
 })
 
-module.exports = config
+export default config

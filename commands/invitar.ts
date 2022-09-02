@@ -1,8 +1,9 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
 
-module.exports = {
+export default {
     description: "Invitar al Bot a tu server.",
-    slash: "both",
+    slash: true,
     category: "Bot",
 
     callback: async () => {
@@ -11,4 +12,4 @@ module.exports = {
             .setColor("GREEN")
             .setURL("https://discord.com/api/oauth2/authorize?client_id=956768087657545728&permissions=8&scope=applications.commands%20bot")
     }
-}
+} as ICommand

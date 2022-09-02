@@ -1,8 +1,9 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
 
-module.exports = {
+export default {
     description: "Qué pasó el 9/12/18?",
-    slash: "both",
+    slash: true,
     category: "Juegos & otros",
 
     callback: async () => {
@@ -14,6 +15,6 @@ module.exports = {
                 { name: "Resumen:", value: "https://www.youtube.com/watch?v=CQre9mRlPaQ" }
             )
             .setImage("https://www.infobae.com/new-resizer/HlNBO630d38T6fTa78hj5JXX0Oo=/992x558/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/12/09193605/River-vs-Boca-Final-Copa-Libertadores-301.jpg")
-            .setColor("WHITE")
+            .setColor("YELLOW")
     }
-}
+} as ICommand;

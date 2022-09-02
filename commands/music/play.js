@@ -1,7 +1,7 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
 const { QueryType } = require('discord-player');
 
-module.exports = {
+export default {
     description: "Reproduce una cancion",
     slash: "both",
     category: "Audio",

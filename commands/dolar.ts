@@ -1,9 +1,10 @@
-const { MessageEmbed } = require("discord.js")
-const getDolar = require("../APIs/dolarApi/getDolar.js")
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
+import getDolar from '../APIs/dolarApi/getDolar';
 
-module.exports = {
-    description: "Cotizacion del dolar en pesos argentinos",
-    slash: false,
+export default {
+    description: "Cotización del dolar en pesos argentinos",
+    slash: true,
     category: "Economía",
 
     callback: async () => {
@@ -32,4 +33,4 @@ module.exports = {
                 .setFooter({ text: "Si no funciona correctamente, por favor avisar en !soporte" })
         }
     }
-}
+} as ICommand

@@ -1,7 +1,7 @@
-const { MessageEmbed } = require("discord.js")
-const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require('@discordjs/voice');
+import { MessageEmbed } from 'discord.js';
+import { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } from '@discordjs/voice';
 
-module.exports = {
+export default {
     description: "Indique persona y audio para reproducir.",
     slash: "both",
     category: "Audio",

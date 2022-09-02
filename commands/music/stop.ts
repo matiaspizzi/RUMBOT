@@ -1,12 +1,14 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
+import player from '../../index';
 
-module.exports = {
+export default {
     description: "Termina la reproducción",
-    slash: "both",
+    slash: true,
     category: "Audio",
 
-    callback: async ({ message }) => {
-        const queue = player.getQueue(message.guild.id);
+    callback: async ({ interaction }) => {
+        const queue = player.getQueue(`${interaction.guild?.id}`);
 
         if (!queue || !queue.playing) return new MessageEmbed()
             .setDescription(`Actualmente no se esta reproduciendo música`)
@@ -17,4 +19,4 @@ module.exports = {
         return new MessageEmbed()
             .setDescription(`Parando la reproducción, nos vemos la próxima :wink:`)
     },
-}
+} as ICommand

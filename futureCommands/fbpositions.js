@@ -2,7 +2,7 @@ const {MessageEmbed} = require("discord.js")
 const getPositions = require("../footballApi/getPositions.js") 
 const getLeague = require("../footballApi/getLeague.js")
 
-module.exports = {  
+export default {  
     description: "Get data of a football team.",
     slash: false,
     category: "Football",

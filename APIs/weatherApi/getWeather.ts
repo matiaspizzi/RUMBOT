@@ -1,17 +1,18 @@
-const fetch = require("node-fetch")
-const config = require("../../config.js")
+import config from "../../config"
+import { URLSearchParams } from "url"
+import fetch from "node-fetch"
 
-const getWeather = async (location) => {
+const getWeather = async (location: string) => {
 
-    const params = new URLSearchParams({
-        access_key: config.weather.access_key,
-        query: `${location}`
-    })
+    let params = new URLSearchParams({
+        access_key: `${config.weather.access_key}`,
+        query: location
+    }).toString()
 
     const res = await fetch(`http://api.weatherstack.com/current?${params}`)
     let data = await res.json()
     if(data.location){
-        data = {
+        return {
             location: data.location.name + ", " + data.location.region + ", " + data.location.country,
             time: data.location.localtime,
             temperature: data.current.temperature,
@@ -21,8 +22,7 @@ const getWeather = async (location) => {
             wind_speed: data.current.wind_speed,
             is_day: data.current.is_day,
         }
-        return data
     }
 }
 
-module.exports = getWeather
+export default getWeather

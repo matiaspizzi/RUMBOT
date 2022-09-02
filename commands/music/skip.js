@@ -1,6 +1,6 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
 
-module.exports = {
+export default {
     description: "Salta la canción actual",
     slash: "both",
     category: "Audio",

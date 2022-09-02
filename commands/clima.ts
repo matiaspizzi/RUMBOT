@@ -1,14 +1,23 @@
-const getClima = require('../APIs/weatherApi/getWeather.js')
-const { MessageEmbed } = require("discord.js")
+import getWeather from '../APIs/weatherApi/getWeather';
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
 
-module.exports = {
-    description: "Indique la ciudad y obtenga datos sobre el clima.",
-    slash: "both",
+export default {
+    description: "Indique la ubicación y obtenga datos sobre el clima.",
+    slash: true,
     category: "Clima",
+    options: [
+        {
+            name: 'ubicacion',
+            description: 'ubicación',
+            required: true,
+            type: 3
+        }
+    ],
 
-    callback: async ({ text }) => {
-        const ciudad = `${text}`
-        const data = await getClima(ciudad)
+    callback: async ({ interaction }) => {
+        const ubicacion = `${interaction.options.getString('ubicacion')}`
+        const data = await getWeather(ubicacion)
         if (data) {
             let icon
             let color
@@ -29,7 +38,8 @@ module.exports = {
                 )
                 .setFooter({ text: `${data.time} \n Para mas información: rb clima \t\t\t\t\t Powered by: weatherstack.com ` })
                 .setThumbnail(data.weather_icons)
-                .setColor(color)
+                .setColor("AQUA")
+
         } else {
             return new MessageEmbed()
                 .setTitle("Por favor, escriba un parámetro válido.")
@@ -42,4 +52,4 @@ module.exports = {
                 .setColor("RED")
         }
     }
-}
+} as ICommand

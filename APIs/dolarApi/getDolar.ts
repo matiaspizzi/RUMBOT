@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+import fetch from "node-fetch"
 
 const getDolar = async () => {
 
@@ -22,7 +22,8 @@ const getDolar = async () => {
             dolarData.push(data)
         }
     }
+    console.log(dolarData)
     return dolarData
 }
 
-module.exports = getDolar
+export default getDolar

@@ -1,7 +1,7 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
 const lyricsParse = require("lyrics-finder");
 
-module.exports = {
+export default {
 	description: "Muestra la letra de la canción actual",
 	slash: "both",
 	category: "Audio",

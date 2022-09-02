@@ -1,8 +1,9 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from 'discord.js';
+import { ICommand } from 'wokcommands';
 
-module.exports = {
+export default {
     description: "Tirar dado.",
-    slash: "both",
+    slash: true,
     category: "Juegos & otros",
 
     callback: async () => {
@@ -11,4 +12,4 @@ module.exports = {
             .setTitle(`:game_die:  ${number}`)
             .setColor("RED")
     }
-}
+} as ICommand
