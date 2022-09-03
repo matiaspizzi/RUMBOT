@@ -6,7 +6,6 @@ export default {
     description: 'Indique la ubicación y obtenga datos sobre el clima.',
     slash: true,
     category: 'Clima',
-    testOnly: true,
     options: [
         {
             name: 'ubicacion',

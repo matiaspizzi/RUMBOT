@@ -25,7 +25,7 @@ export default {
             embeds: [
                 new MessageEmbed()
                 .setTitle(`:sparkles: DOLAR`)
-                .setDescription(`Cotizaciones del **dolar** en **pesos argentinos** \n\n :calendar_spiral: **Actualizado:** ${dolarData[9].fecha._text} - ${dolarData[9].hora._text}\n\n **Riesgo País**: ${dolarData[6].compra._text} \n\n **Circulante**:\t${dolarData[8].compra._text}M ARS \n **Reservas**:\t${dolarData[7].compra._text}M USD `)
+                .setDescription(`Cotizaciones del **dolar** en **pesos argentinos** \n\n :calendar_spiral: **Actualizado:** ${dolarData[9].fecha._text} - ${dolarData[9].hora._text}\n\n **Riesgo País**: ${dolarData[6].compra._text} \n\n **Circulante**: ${dolarData[8].compra._text}M ARS \n **Reservas**: ${dolarData[7].compra._text}M USD `)
                 .setColor('GREEN')
                 .setThumbnail('https://i.imgur.com/exPW606.png')
                 .setFields(
