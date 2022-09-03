@@ -2,14 +2,19 @@ import { MessageEmbed } from 'discord.js';
 import { ICommand } from 'wokcommands';
 
 export default {
-    description: "Tirar dado.",
+    description: 'Tirar dado.',
     slash: true,
-    category: "Juegos & otros",
+    category: 'Juegos & otros',
 
-    callback: async () => {
+    callback: async ({ interaction }) => {
         const number = Math.floor(Math.random() * (6 - 1 + 1) + 1)
-        return new MessageEmbed()
-            .setTitle(`:game_die:  ${number}`)
-            .setColor("RED")
+        interaction.reply({
+            embeds: [
+                new MessageEmbed()
+                .setTitle(`:game_die:  ${number}`)
+                .setColor('RED')
+            ]
+        })
+        return
     }
 } as ICommand

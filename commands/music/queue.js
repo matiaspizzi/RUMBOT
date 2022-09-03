@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require("@discordjs/builders")
+const { SlashCommandBuilder } = require('@discordjs/builders')
 import { MessageEmbed } from 'discord.js';
 
 export default {
-    description: "Muestra la cola de reproducción",
-    slash: "both",
-    category: "Audio",
+    description: 'Muestra la cola de reproducción',
+    slash: 'both',
+    category: 'Audio',
 
     callback: async ({ message, text }) => {
         const pagina = parseInt(text) || 0
@@ -19,12 +19,12 @@ export default {
 
         const queueString = queue.tracks.slice(pagina * 10, pagina * 10 + 10).map((song, i) => {
             return `**${pagina * 10 + i + 1}.**  ${song.title} \`[${song.duration}]\` • <@${song.requestedBy.id}>`
-        }).join("\n")
+        }).join('\n')
 
         const currentSong = queue.current
 
         return new MessageEmbed()
-            .setDescription(`**Reproduciendo**\n` + (currentSong ? ` ${currentSong.title} \`[${currentSong.duration}]\` • <@${currentSong.requestedBy.id}>` : "Ninguna") + `\n\n**Cola**\n${queueString}`)
+            .setDescription(`**Reproduciendo**\n` + (currentSong ? ` ${currentSong.title} \`[${currentSong.duration}]\` • <@${currentSong.requestedBy.id}>` : 'Ninguna') + `\n\n**Cola**\n${queueString}`)
             .setFooter({ text: `Página ${pagina} de ${totalPaginas}` })
             .setThumbnail(currentSong.setThumbnail)
     }

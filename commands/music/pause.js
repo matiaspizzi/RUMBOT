@@ -1,9 +1,9 @@
 import { MessageEmbed } from 'discord.js';
 
 export default {
-    description: "Pausa la reproduccion",
-    slash: "both",
-    category: "Audio",
+    description: 'Pausa la reproduccion',
+    slash: 'both',
+    category: 'Audio',
 
     callback: async ({ message }) => {
         const queue = player.getQueue(message.guild.id);
@@ -13,6 +13,6 @@ export default {
 
         queue.setPaused(true);
         return new MessageEmbed()
-            .setDescription(`Reproduccion pausada, para reanudar use "rb resume"`)
+            .setDescription(`Reproduccion pausada, para reanudar use 'rb resume'`)
     },
 }

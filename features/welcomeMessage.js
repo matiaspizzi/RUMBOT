@@ -2,11 +2,11 @@ import { MessageEmbed } from 'discord.js';
 
 module.exports = (client, instance) => {
  
-    client.on("guildMemberAdd", (member) => {
+    client.on('guildMemberAdd', (member) => {
       const { guild } = member
   
       const channel = guild.channels.cache.find(
-        (channel) => channel.name === "✨general✨"
+        (channel) => channel.name === '✨general✨'
       )
 
       if (!channel) {
@@ -15,7 +15,7 @@ module.exports = (client, instance) => {
 
       return new MessageEmbed()
         .setTitle(`:sparkles: Bienvenido ${member}`)
-        .setColor("GREEN")
+        .setColor('GREEN')
         .setThumbnail(member.user.avatarURL)
         .setTimestamp()
       

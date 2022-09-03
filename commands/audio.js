@@ -2,14 +2,14 @@ import { MessageEmbed } from 'discord.js';
 import { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } from '@discordjs/voice';
 
 export default {
-    description: "Indique persona y audio para reproducir.",
-    slash: "both",
-    category: "Audio",
+    description: 'Indique persona y audio para reproducir.',
+    slash: 'both',
+    category: 'Audio',
 
     callback: async ({ client, message, text }) => {
 
-        const audioResources = require("../audioResources");
-        const comaIndex = text.indexOf(",")
+        const audioResources = require('../audioResources');
+        const comaIndex = text.indexOf(',')
         const personaName = text.substring(0, comaIndex).trim()
         const audioName = text.substring(comaIndex + 1).trim()
 
@@ -58,7 +58,7 @@ export default {
         if (queue) {
             return new MessageEmbed()
                 .setDescription(`:x: El Bot está en uso.`)
-                .setColor("RED")
+                .setColor('RED')
         }
 
         if (!queue) {
@@ -68,12 +68,12 @@ export default {
                 return new MessageEmbed()
                     .setTitle(`:x: No se encontró el canal de voz.`)
                     .setDescription(`Para poder usar este comando debes estar en un canal de voz.`)
-                    .setColor("RED")
+                    .setColor('RED')
             } else if (resource === null) {
                 return new MessageEmbed()
-                    .setTitle(`:x: No se encontró el audio "${text}" \n Por favor, escriba un parámetro válido.`)
+                    .setTitle(`:x: No se encontró el audio '${text}' \n Por favor, escriba un parámetro válido.`)
                     .setDescription(`**Forma de usar el comando:** \n rb audio <nombre>, <audio>\n \n __**Lista de audios**__:`)
-                    .setColor("RED")
+                    .setColor('RED')
                     .setFields(
                         { name: `:small_blue_diamond: ${audioResources[0].nombre}:`, value: `${audioResources[0].audios[0].nombre}\n${audioResources[0].audios[1].nombre}\n${audioResources[0].audios[2].nombre}\n${audioResources[0].audios[3].nombre}\n${audioResources[0].audios[4].nombre}\n${audioResources[0].audios[5].nombre}\n -----------------------------`, inline: false },
                         { name: `:small_blue_diamond: ${audioResources[1].nombre}:`, value: `${audioResources[1].audios[0].nombre}\n-----------------------------`, inline: false },
@@ -83,7 +83,7 @@ export default {
                         { name: `:small_blue_diamond: ${audioResources[5].nombre}:`, value: `${audioResources[5].audios[0].nombre}\n${audioResources[5].audios[1].nombre}\n${audioResources[5].audios[2].nombre}\n${audioResources[5].audios[3].nombre}\n-----------------------------`, inline: false },
                         { name: `:small_blue_diamond: ${audioResources[6].nombre}:`, value: `${audioResources[6].audios[0].nombre}\n${audioResources[6].audios[1].nombre}\n${audioResources[6].audios[2].nombre}\n${audioResources[6].audios[3].nombre}\n-----------------------------`, inline: false },
                     )
-                    .setFooter({ text: "Si no funciona correctamente, por favor avisar en !soporte" })
+                    .setFooter({ text: 'Si no funciona correctamente, por favor avisar en /soporte' })
             } else {
                 return playAudio(channel, createAudioResource(resource));
             }

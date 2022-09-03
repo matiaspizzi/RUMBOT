@@ -3,16 +3,15 @@ import { ICommand } from 'wokcommands';
 import firebase from 'firebase-admin'
 
 export default {
-    description: "Envía un mensaje a soporte.",
+    description: 'Envía un mensaje a soporte.',
     slash: true,
-    category: "Bot",
-    testOnly: true,
+    category: 'Bot',
     options: [
         {
-            name: "mensaje",
-            description: "Mensaje a enviar",
+            name: 'mensaje',
+            description: 'Mensaje a enviar',
             required: true,
-            type: 3
+            type: 3,
         }
     ],
 
@@ -23,24 +22,30 @@ export default {
                 user: `${interaction.user.username}#${interaction.user.discriminator}`,
                 message: message
             })
-            return new MessageEmbed()
-                .setTitle(`:sparkles: Reporte enviado, gracias ${interaction.user.username}!  :sparkles:`)
-                .setColor("GREEN")
-                .setTimestamp()
+            await interaction.reply({
+                embeds: [
+                    new MessageEmbed()
+                    .setTitle(`:sparkles: Reporte enviado, gracias ${interaction.user.username}!  :sparkles:`)
+                    .setColor('GREEN')
+                    .setTimestamp()
+                ],
+                ephemeral: true
+            })
+            return
         }
-        return new MessageEmbed()
-            .setTitle(`:x: Error_!_`)
-            .setFields(
-                { name: "Forma de usar el comando:", value: "rb soporte <descripción del problema>" },
-                { name: "Ejemplo:", value: "rb soporte el comando stinfo no funciona con el juego x" },
-            )
-            .setDescription(`Por favor, escriba un mensaje más largo. (mínimo 20 caracteres)`)
-            .setFooter({ text: "Si el mensaje es inapropiado, corre riesgo de ser baneado." })
-            .setColor("RED")
+        await interaction.reply({
+            embeds: [
+                new MessageEmbed()
+                .setTitle(`:x: Por favor, escriba un mensaje más largo. (mínimo 20 caracteres)_!_`)
+                .setDescription('Si el mensaje es inapropiado, podría ser baneado.')
+                .setColor('RED')
+            ], 
+            ephemeral: true
+        })
     }
 } as ICommand
 
 const saveMessage = (data: any) => {
     data = { ...data, timestamp: new Date(Date.now()).toLocaleDateString() }
-    firebase.firestore().collection("soporteMensajes").add(data)
+    firebase.firestore().collection('soporteMensajes').add(data)
 }

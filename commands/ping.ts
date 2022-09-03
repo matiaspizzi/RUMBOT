@@ -1,20 +1,16 @@
-import { ICommand } from "wokcommands"
+import { ICommand } from 'wokcommands'
 
 export default {
-  category: 'Bot',
-  description: 'Devuelve el ping en ms',
-  slash: true,
-  testOnly: true,
+    category: 'Bot',
+    description: 'Devuelve el ping en ms',
+    slash: true,
 
-  callback: ({ interaction }) => {
-    const reply = `🏓 Pong! \t Latencia: ${Math.round(interaction.client.ws.ping)}ms`
-
-    if (interaction) {
-      interaction.reply({
-        content: reply
-      })
-      return
+    callback: ({ interaction }) => {
+        interaction.reply({
+            content: `🏓 Pong! \t Latencia: ${Math.round(interaction.client.ws.ping)}ms`,
+            ephemeral: true
+        })
+        return
     }
-  }
 } as ICommand
 

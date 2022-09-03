@@ -16,7 +16,6 @@
     "@discordjs/opus": "^0.7.0",
     "@discordjs/rest": "^0.3.0",
     "@discordjs/voice": "^0.8.0",
-    "axios": "^0.26.1",
     "discord-player": "^5.2.2",
     "discord.js": "^13.6.0",
     "dotenv": "^8.6.0",
@@ -28,7 +27,7 @@
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
     "wokcommands": "^1.5.3",
-    "yarn": "^1.22.18"
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@types/node": "^18.7.14"

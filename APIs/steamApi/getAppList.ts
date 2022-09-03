@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+import fetch from 'node-fetch'
 
 const getAppList = async () => {
     const res = await fetch(`http://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json`)

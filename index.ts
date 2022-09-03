@@ -11,17 +11,17 @@ const client = new Discord.Client({
 
 const player = new Player(client);
 
-client.on("ready", () => {
+client.on('ready', () => {
   console.log(`${client.user?.tag} is alive!`)
 
   client.user?.setActivity('rb help');
 
   new WOKCommands(client, {
-    commandsDir: path.join(__dirname, "commands"),
-    featuresDir: path.join(__dirname, "features"),
+    commandsDir: path.join(__dirname, 'commands'),
+    featuresDir: path.join(__dirname, 'features'),
     typeScript: true,
 
-    testServers: ["601084733144694785", "953839191182176306"],
+    testServers: ['601084733144694785', '953839191182176306'],
   })
   .setDefaultPrefix('rb ')
   .setCategorySettings([

@@ -1,6 +1,6 @@
-import fetch from "node-fetch"
-import getAppList from "./getAppList"
-import dotenv from "dotenv"
+import fetch from 'node-fetch'
+import getAppList from './getAppList'
+import dotenv from 'dotenv'
 dotenv.config()
 
 const banedIds = [980030]
@@ -10,7 +10,7 @@ const getAppData = async (param: string) => {
     const appsList = await getAppList()
     const finder = Number(param)
 
-    if (`${finder}` == "NaN") {
+    if (`${finder}` == 'NaN') {
         const appName = param.toLowerCase().replace(/[^a-zA-Z 0-9.]+/g, '');
         let desiredAppList: any = []
         appsList.forEach((app: any) => {
@@ -21,7 +21,7 @@ const getAppData = async (param: string) => {
         if (!app || banedIds.includes(app.appid)) return app
         return getAppDetails(app)
 
-    } else if (typeof finder == "number") {
+    } else if (typeof finder == 'number') {
         const app = appsList.find((app: { appid: number }) => app.appid == finder)
         if (!app) return app
         return getAppDetails(app)
@@ -37,7 +37,7 @@ const getAppDetails = async (app: { appid: number }) => {
         is_free: appData[app.appid].data.is_free,
         price_initial: formatPrice(appData[app.appid].data.price_overview?.initial),
         price_final: formatPrice(appData[app.appid].data.price_overview?.final),
-        realPrice: formatPrice((appData[app.appid].data.price_overview?.final * parseInt(process.env.IMPUESTOS!))),
+        realPrice: formatPrice((appData[app.appid].data.price_overview?.final * parseFloat(process.env.IMPUESTOS!))),
         discount_percent: `${appData[app.appid].data.price_overview?.discount_percent}%`,
         short_description: appData[app.appid].data.short_description,
         img_url: appData[app.appid].data.header_image,
@@ -63,13 +63,13 @@ function getAppSize(pc_requirements_recommended: string) {
         const storage = pc_requirements_recommended.substr(index + 8, 8)
         return storage
     } else {
-        return "No se encontró"
+        return 'No se encontró'
     }
 }
 
 const formatPrice = (price: number | null) => {
     const string = price?.toString()
-    const formated = "ARS$ " + string?.slice(0, (string.length - 2)) + "," + (string)?.slice(string.length - 2);
+    const formated = 'ARS$ ' + string?.slice(0, (string.length - 2)) + ',' + (string)?.slice(string.length - 2);
     return formated
 }
 

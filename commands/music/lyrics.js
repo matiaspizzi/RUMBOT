@@ -1,10 +1,10 @@
 import { MessageEmbed } from 'discord.js';
-const lyricsParse = require("lyrics-finder");
+const lyricsParse = require('lyrics-finder');
 
 export default {
-	description: "Muestra la letra de la canción actual",
-	slash: "both",
-	category: "Audio",
+	description: 'Muestra la letra de la canción actual',
+	slash: 'both',
+	category: 'Audio',
 
 	callback: async ({ message }) => {
 		const queue = player.getQueue(message.guild.id);
@@ -15,9 +15,9 @@ export default {
 		try {
 			const songNameFormated = queue.current.title
 				.toLowerCase()
-				.replace(/\(lyrics|lyric|official music video|audio|official|official video|official video hd|clip officiel|clip|extended|hq\)/g, "")
+				.replace(/\(lyrics|lyric|official music video|audio|official|official video|official video hd|clip officiel|clip|extended|hq\)/g, '')
 
-			let lyrics = await lyricsParse(songNameFormated, queue.current.author) || "Not Found!";
+			let lyrics = await lyricsParse(songNameFormated, queue.current.author) || 'Not Found!';
 
 			if (lyrics.length) {
 				return new MessageEmbed()

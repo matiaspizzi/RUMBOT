@@ -1,4 +1,4 @@
-import firebase from "firebase-admin";
+import firebase from 'firebase-admin';
 
 const config = {
     weather: {

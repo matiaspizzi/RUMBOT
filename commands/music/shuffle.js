@@ -1,9 +1,9 @@
 import { MessageEmbed } from 'discord.js';
 
 export default {
-    description: "Aleatoriza la cola de reproducción",
-    slash: "both",
-    category: "Audio",
+    description: 'Aleatoriza la cola de reproducción',
+    slash: 'both',
+    category: 'Audio',
     callback: async ({ message }) => {
         const queue = player.getQueue(message.guild.id);
 

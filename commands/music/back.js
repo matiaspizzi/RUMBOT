@@ -2,9 +2,9 @@ import { MessageEmbed } from 'discord.js';
 import { player } from '../../index'
 
 export default {
-    description: "Vuelve a la canción anterior",
-    slash: "both",
-    category: "Audio",
+    description: 'Vuelve a la canción anterior',
+    slash: 'both',
+    category: 'Audio',
 
     callback: async ({ message }) => {
         const queue = player.getQueue(message.guild.id);

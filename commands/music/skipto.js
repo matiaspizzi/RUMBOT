@@ -1,9 +1,9 @@
 import { MessageEmbed } from 'discord.js';
 
 export default {
-    description: "Salta a la canción seleccionada y elimina las anteriores",
-    slash: "both",
-    category: "Audio",
+    description: 'Salta a la canción seleccionada y elimina las anteriores',
+    slash: 'both',
+    category: 'Audio',
 
     callback: async ({ message, text }) => {
         const queue = player.getQueue(message.guild.id);
